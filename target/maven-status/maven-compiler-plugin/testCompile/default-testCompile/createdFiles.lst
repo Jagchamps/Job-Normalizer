@@ -1,0 +1,4 @@
+com/jobnormalizer/jobs/OneWordTitleTest.class
+com/jobnormalizer/normalizer/NormalizerTest.class
+com/jobnormalizer/jobs/TwoWordTitleTest.class
+com/jobnormalizer/jobs/JobTitleFactoryTest.class

@@ -1,0 +1,6 @@
+com/jobnormalizer/jobs/JobTitleFactory.class
+com/jobnormalizer/jobs/JobTitle.class
+com/jobnormalizer/jobs/TwoWordTitle.class
+com/jobnormalizer/normalizer/Normalizer.class
+com/jobnormalizer/jobs/OneWordTitle.class
+com/jobnormalizer/Application.class
