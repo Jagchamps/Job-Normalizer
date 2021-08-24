@@ -11,12 +11,15 @@ public class Normalizer {
 	
 	private JobTitleFactory jobTitleFactory;
 	
+	private ArrayList<JobTitle> normalizedJobTitles;
+	
 
 	public Normalizer() {
 		this.jobTitleFactory = new JobTitleFactory();
+		this.normalizedJobTitles = new ArrayList<JobTitle>();
 	}
 	
-	public String[] getNormalizedStoredTitles() {
+	public String[] getStoredNormalizedTitles() {
 		return storedNormalizedTitles;
 	}
 	
@@ -28,6 +31,14 @@ public class Normalizer {
 		this.jobTitleFactory = jobTitleFactory;
 	}
 
+	public ArrayList<JobTitle> getNormalizedJobTitles() {
+		return normalizedJobTitles;
+	}
+
+	public void setNormalizedJobTitles(ArrayList<JobTitle> normalizedJobTitles) {
+		this.normalizedJobTitles = normalizedJobTitles;
+	}
+
 	public String normalize(String inputTitle) {
 		if(inputTitle == null || inputTitle.trim().isEmpty()) {
 			return "No job title was provided";
@@ -35,7 +46,11 @@ public class Normalizer {
 		
 		String bestMatch = "No normalized title was found";
 		
-		ArrayList<JobTitle> normalizedJobs = setupNormalizedJobs(this.getNormalizedStoredTitles());
+		ArrayList<JobTitle> normalizedJobs = this.getNormalizedJobTitles();
+		
+		if(normalizedJobs.isEmpty()) {
+			normalizedJobs = setupNormalizedJobs(this.getStoredNormalizedTitles());
+		}
 		
 		float largest = 0f;
 		for(JobTitle j : normalizedJobs) {
@@ -66,6 +81,8 @@ public class Normalizer {
 				e.printStackTrace();
 			}
 		}
+		
+		this.setNormalizedJobTitles(normalizedJobs);
 		
 		return normalizedJobs;
 	}
