@@ -1,4 +1,6 @@
-# UI Technical Assessment
+# Job Normalizer
+
+## Introduction
 
 A Java application for normalizing inputted job titles to one of the following titles:
 
